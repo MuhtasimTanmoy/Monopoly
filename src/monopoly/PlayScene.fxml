@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="monopoly.PlaySceneController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="750.0" minWidth="10.0" prefWidth="750.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="250.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" GridPane.columnIndex="1">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ImageView fitHeight="377.0" fitWidth="435.0" layoutX="-140.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@tea_texture_red_and_black_by_shadsie.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="87.0" layoutY="128.0" mnemonicParsing="false" onAction="#onRollClick" style="-fx-background-radius: 150;" text="Roll">
+                     <font>
+                        <Font name="System Italic" size="25.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <AnchorPane layoutX="27.0" layoutY="14.0" prefHeight="78.0" prefWidth="75.0">
+                     <children>
+                        <ImageView fx:id="imageHolder1" fitHeight="78.0" fitWidth="88.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Img/6.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <ImageView fx:id="imageHolder2" fitHeight="78.0" fitWidth="79.0" layoutX="135.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Img/6.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="PlayerName" layoutX="14.0" layoutY="205.0" prefHeight="27.0" prefWidth="86.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="TwoPlayer1" layoutX="27.0" layoutY="204.0" prefHeight="27.0" prefWidth="79.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="102.0" layoutY="201.0" text="VS">
+                     <font>
+                        <Font name="Bell MT Italic" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="TwoPlayer2" layoutX="151.0" layoutY="205.0" text="Computer">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cr" layoutX="18.0" layoutY="231.0" text="1500" underline="true">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="85.0" layoutY="287.0" mnemonicParsing="false" onAction="#onTestClick" style="-fx-background-radius: 200;" text="Move">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect></Button>
+                  <Label fx:id="Credit2" layoutX="135.0" layoutY="228.0" prefHeight="44.0" prefWidth="62.0" text="1500" underline="true">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="248.0" style="-fx-background-radius: 200;">
+               <children>
+                  <ImageView fitHeight="411.0" fitWidth="484.0" layoutX="-31.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@tea_texture_red_and_black_by_shadsie.jpg" />
+                     </image>
+                     <effect>
+                        <DropShadow color="#221f1f" spread="0.78" />
+                     </effect>
+                  </ImageView>
+                  <Button fx:id="buyButton" layoutX="52.0" layoutY="79.0" mnemonicParsing="false" onAction="#onClickBuy" style="-fx-background-radius: 200;" text="Buy" underline="true" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="cancelButton" layoutX="141.0" layoutY="80.0" mnemonicParsing="false" onAction="#onEndCLick" prefHeight="29.0" prefWidth="59.0" style="-fx-background-radius: 500;" text="Cancel" underline="true" visible="false">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <ImageView fx:id="info" fitHeight="196.0" fitWidth="216.0" layoutX="26.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Img/avatar.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="103.0" layoutY="348.0" text="Monopoly">
+                     <font>
+                        <Font name="Cooper Black" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <ImageView fitHeight="750.0" fitWidth="933.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/h4iC9ha.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane onMouseEntered="#showMe" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="pointer" fitHeight="46.0" fitWidth="52.0" layoutX="699.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/blue.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="TWO_PASS_BOX" color="#35392c" height="246.35" radius="94.445" spread="0.76" width="133.43" />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="amarImage" fitHeight="196.0" fitWidth="133.0" layoutX="595.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
+            <AnchorPane layoutX="101.0" layoutY="583.0" onMouseDragged="#showMe" prefHeight="133.0" prefWidth="92.0" />
+            <ImageView fitHeight="84.0" fitWidth="133.0" layoutX="459.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
+               <image>
+                  <Image url="@Img/Chest.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="78.0" fitWidth="141.0" layoutX="166.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
+               <image>
+                  <Image url="@Img/Chance.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="541.0" layoutY="555.0" prefHeight="26.0" prefWidth="52.0" rotate="-45.0" text="Lockpick">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <Label layoutX="245.0" layoutY="267.0" rotate="-45.0" text="Luck">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <ImageView fx:id="pointer2" fitHeight="44.0" fitWidth="51.0" layoutX="629.0" layoutY="672.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/red.png" />
+               </image>
+               <effect>
+                  <DropShadow color="#251818" height="127.74" radius="83.385" spread="0.85" width="207.8" />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
