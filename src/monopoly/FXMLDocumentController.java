@@ -5,7 +5,11 @@
  */
 package monopoly;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -15,6 +19,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import static monopoly.PlaySceneController.n;
+import static monopoly.PlaySceneController.n2;
 import static monopoly.PlaySceneController.singleName;
 import static monopoly.PlaySceneController.twoPlayer1;
 import static monopoly.PlaySceneController.twoPlayer2;
@@ -34,7 +40,7 @@ public class FXMLDocumentController implements Initializable {
     private TextField TwoPlayer1;
 
     
-    
+    public static boolean load=false;
     
     
     
@@ -66,6 +72,42 @@ public class FXMLDocumentController implements Initializable {
         
         
         Monopoly.showAnother();
+    }
+
+//    @FXML
+//    private void onLoadClick(ActionEvent event) throws IOException {
+//        
+//        
+//        
+//        //singleName=SingleName.getText();
+//       
+//         //twoPlayer1=TwoPlayer1.getText();
+//         
+//         
+//         //twoPlayer2=TwoPlayer2.getText();
+//        
+//        //load=true;
+//        
+//        
+//        Monopoly.showAnother();
+//        
+//        
+//        
+//        
+//         
+//
+//          
+//    }
+
+    @FXML
+    private void onServerClick(ActionEvent event) throws IOException {
+        Socket mySock;
+        
+        mySock=new Socket("HELLO",6789);
+    }
+
+    @FXML
+    private void onClientClick(ActionEvent event) {
     }
     
 }

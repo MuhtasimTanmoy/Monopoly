@@ -6,6 +6,7 @@
 package monopoly;
 
 import java.io.IOException;
+import java.net.Socket;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +20,8 @@ import javafx.stage.Stage;
 public class Monopoly extends Application {
     public static Stage newStage;
     public static Parent root;
+    
+    Socket mySock;
     @Override
     public void start(Stage stage) throws Exception {
         

@@ -92,7 +92,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="248.0" style="-fx-background-radius: 200;">
                <children>
-                  <ImageView fitHeight="411.0" fitWidth="484.0" layoutX="-31.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                  <ImageView fitHeight="411.0" fitWidth="484.0" layoutX="-37.0" layoutY="-51.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                      <image>
                         <Image url="@tea_texture_red_and_black_by_shadsie.jpg" />
                      </image>
@@ -100,7 +100,7 @@
                         <DropShadow color="#221f1f" spread="0.78" />
                      </effect>
                   </ImageView>
-                  <Button fx:id="buyButton" layoutX="52.0" layoutY="79.0" mnemonicParsing="false" onAction="#onClickBuy" style="-fx-background-radius: 200;" text="Buy" underline="true" visible="false">
+                  <Button fx:id="buyButton" layoutX="52.0" layoutY="79.0" mnemonicParsing="false" onAction="#onClickBuy" style="-fx-background-radius: 200;" text="Yes" underline="true" visible="false">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -108,7 +108,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="cancelButton" layoutX="141.0" layoutY="80.0" mnemonicParsing="false" onAction="#onEndCLick" prefHeight="29.0" prefWidth="59.0" style="-fx-background-radius: 500;" text="Cancel" underline="true" visible="false">
+                  <Button fx:id="cancelButton" layoutX="141.0" layoutY="80.0" mnemonicParsing="false" onAction="#onEndCLick" prefHeight="29.0" prefWidth="59.0" style="-fx-background-radius: 500;" text="No" underline="true" visible="false">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -121,11 +121,18 @@
                         <Image url="@Img/avatar.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="103.0" layoutY="348.0" text="Monopoly">
+                  <Label layoutX="86.0" layoutY="323.0" text="Monopoly">
                      <font>
                         <Font name="Cooper Black" size="15.0" />
                      </font>
                   </Label>
+                  <Button layoutX="6.0" layoutY="320.0" mnemonicParsing="false" onAction="#onSaveClick" style="-fx-background-radius: 200;" text="Save">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button layoutX="192.0" layoutY="302.0" mnemonicParsing="false" onAction="#onLoadCLick" text="Load" />
+                  <Button layoutX="196.0" layoutY="330.0" mnemonicParsing="false" onAction="#onExitClicked" text="Exit" />
                </children>
                <effect>
                   <DropShadow />

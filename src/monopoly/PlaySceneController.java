@@ -5,7 +5,15 @@
  */
 package monopoly;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import static java.lang.Math.random;
+import static java.lang.System.load;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -21,6 +29,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import static monopoly.FXMLDocumentController.load;
 
 
 
@@ -127,14 +136,14 @@ public class PlaySceneController implements Initializable {
                     
             PlayerName.setText(singleName);
             
-            amarImage.setVisible(false);//sssssssssssssssssssssssssssssssssss
+            //amarImage.setVisible(false);//sssssssssssssssssssssssssssssssssss
             
             TwoPlayer1.setText(twoPlayer1);
             
             if(twoPlayer2.length()>0){
                  TwoPlayer2.setText(twoPlayer2);
                  
-                 System.out.println("dsdfsdfs");
+                 
                  
                  single=false;
             }
@@ -142,11 +151,95 @@ public class PlaySceneController implements Initializable {
             PlayerCredit=1500;
             
             PlayerCredit2=1500;
+            //System.out.println("dsdfsdfs");
+            if(load==true){
+                //System.out.println("dsdfsdfs");
+                try {
+                    load();
+                } catch (IOException ex) {
+                    Logger.getLogger(PlaySceneController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
             
         
         
         
-    }    
+    } 
+    
+    private void load() throws FileNotFoundException, IOException {
+         FileReader tfile = new FileReader("Savefile.txt");
+          BufferedReader tread = new BufferedReader(tfile);
+          //String p=tread.readLine();
+          
+          //System.out.println("fsdxv");
+//          while(true){
+//          if(p!=null){
+//              System.out.println(p);
+//              p=tread.readLine();
+//          }
+//          }
+          
+         c=Integer.parseInt(tread.readLine());
+         
+         b=Integer.parseInt(tread.readLine());
+         n=Integer.parseInt(tread.readLine());
+         n2=Integer.parseInt(tread.readLine()); 
+         PlayerCredit=Integer.parseInt(tread.readLine());
+        PlayerCredit2=Integer.parseInt(tread.readLine());
+         single=Boolean.valueOf(tread.readLine());
+         ami=Boolean.valueOf(tread.readLine());
+        singleName=tread.readLine();
+        twoPlayer1=tread.readLine();
+      twoPlayer2=tread.readLine();
+      
+      tread.close();
+      
+         System.out.println(n);
+        
+//     
+//       pointer.setLayoutX(p[n].getx());
+//      pointer.setLayoutY(p[n].gety());
+//      
+//       pointer2.setLayoutX(p[n].getx());
+//      pointer2.setLayoutY(p[n].gety());
+        
+            
+             
+//       pointer.setLayoutX(p[20].getx());
+//      pointer.setLayoutY(p[20].gety());
+//      
+//       pointer2.setLayoutX(p[20].getx());
+//      pointer2.setLayoutY(p[20].gety());
+
+
+       cr.setText(Integer.toString(PlayerCredit));
+       
+        Credit2.setText(Integer.toString(PlayerCredit2));
+        
+        if(single==true){
+               PlayerName.setText(singleName);
+           
+            
+            
+        }
+        else{
+            
+            TwoPlayer1.setText(twoPlayer1);
+            TwoPlayer2.setText(twoPlayer2);
+        }
+        
+        
+      
+      
+       
+        
+       ;
+        
+          
+          
+          
+         
+    }
     
     
     void set(){
@@ -321,32 +414,44 @@ public class PlaySceneController implements Initializable {
                 else{
                     
                     
-                  
+                  ///////////////////////////////////////////////////////////////////
                     
                     
                     if(ami==false){
-                    for(int i=n2;i<n2+(c+b);i++){
-                   //System.out.println(c+" "+n+" ");
-                  // System.out.println(b);
-                    pointer2.setLayoutX(p[(i+1)%40].getx());
-                    pointer2.setLayoutY(p[(i+1)%40].gety());
+                        
+                        
+//                        try {       
+//                            NewThread1 tt=new NewThread1();
+//                            
+//                            tt.t.join();
+//                        } catch (InterruptedException ex) {
+//                            Logger.getLogger(PlaySceneController.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+//                        
+//                    for(int i=n2;i<n2+(c+b);i++){
+//                   //System.out.println(c+" "+n+" ");
+//                  // System.out.println(b);
+//                    pointer2.setLayoutX(p[(i+1)%40].getx());
+//                    pointer2.setLayoutY(p[(i+1)%40].gety());
+//                    
+//                    infoImage=new Image(Monopoly.class.getResourceAsStream("Img/i/"+(i+1)%40+".png"));
+//                    
+//                    info.setImage(infoImage);
+//                    
+//                    
+//                    
+//                    
+//                    try {
+//                        Thread.sleep(600);
+//                    } catch (InterruptedException ex) {
+//                        Logger.getLogger(PlaySceneController.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                }
+//                n2=(n2+c+b)%40;
+//                    
+//                    ami=true;
+                    //
                     
-                    infoImage=new Image(Monopoly.class.getResourceAsStream("Img/i/"+(i+1)%40+".png"));
-                    
-                    info.setImage(infoImage);
-                    
-                    
-                    
-                    
-                    try {
-                        Thread.sleep(600);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(PlaySceneController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                n2=(n2+c+b)%40;
-                    
-                    ami=true;
                     }     else{
                         for(int i=n;i<n+(c+b);i++){
                    //System.out.println(c+" "+n+" ");
@@ -391,6 +496,91 @@ public class PlaySceneController implements Initializable {
         
     
     }
+    
+    
+    void ai(){
+        NewThread1 tt;
+        try {       
+                            tt=new NewThread1();
+                            
+                            
+                            //if(r.nextInt(2)==0){
+                             //n2=(n2+c+b)%40;
+                    //PlayerCredit2-=op[n2].getMoney();
+                  PlayerCredit2-=100*(b%2);
+        Credit2.setText(Integer.toString(PlayerCredit2));//}
+                            
+                            //tt.t.join();
+                            
+                            Thread ttt;
+                        
+                        ttt=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                 for(int i=n2;i<n2+(c+b);i++){
+                   //System.out.println(c+" "+n+" ");
+                  // System.out.println(b);
+                    pointer2.setLayoutX(p[(i+1)%40].getx());
+                    pointer2.setLayoutY(p[(i+1)%40].gety());
+                    
+                    infoImage=new Image(Monopoly.class.getResourceAsStream("Img/i/"+(i+1)%40+".png"));
+                    
+                    info.setImage(infoImage);
+                    
+                    
+                    
+                    
+                    try {
+                        Thread.sleep(600);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(PlaySceneController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                n2=(n2+c+b)%40;
+                    
+                    ami=true;
+                  
+            }
+        });
+                        
+                        ttt.start();
+                           
+                            
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(PlaySceneController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+        
+        
+        
+                        
+//                    for(int i=n2;i<n2+(c+b);i++){
+//                   //System.out.println(c+" "+n+" ");
+//                  // System.out.println(b);
+//                    pointer2.setLayoutX(p[(i+1)%40].getx());
+//                    pointer2.setLayoutY(p[(i+1)%40].gety());
+//                    
+//                    infoImage=new Image(Monopoly.class.getResourceAsStream("Img/i/"+(i+1)%40+".png"));
+//                    
+//                    info.setImage(infoImage);
+//                    
+//                    
+//                    
+//                    
+//                    try {
+//                        Thread.sleep(600);
+//                    } catch (InterruptedException ex) {
+//                        Logger.getLogger(PlaySceneController.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                }
+//                n2=(n2+c+b)%40;
+//                    
+//                    ami=true;
+//                  if(r.nextInt(2)==0){  
+//                    PlayerCredit2-=op[n].getMoney();
+//        Credit2.setText(Integer.toString(PlayerCredit2));}
+
+    
+    }
 
     @FXML
     private void showMe(MouseEvent event) {
@@ -414,16 +604,24 @@ public class PlaySceneController implements Initializable {
         //System.out.println(p[n].getMoney());
         if(ami==false){
         PlayerCredit-=p[n].getMoney();
+        
+        //System.out.println("Hello");
         cr.setText(Integer.toString(PlayerCredit));
         
         }
         else{
-        PlayerCredit2-=op[n].getMoney();
+        PlayerCredit2-=op[n2].getMoney();
         Credit2.setText(Integer.toString(PlayerCredit2));
         }
         
         buyButton.setVisible(false);
                 cancelButton.setVisible(false);
+                
+                 if(ami==false && single==true){
+                    ai();
+                }
+                
+               
         
         
         
@@ -434,7 +632,47 @@ public class PlaySceneController implements Initializable {
         
           buyButton.setVisible(false);
                 cancelButton.setVisible(false);
+                
+                if(ami==false && single==true){
+                    
+                    ai();
+                }
     }
+
+    @FXML
+    private void onSaveClick(ActionEvent event) throws FileNotFoundException, IOException {
+        //FileWriter mwriter = new FileWriter("Savefile.txt");
+        PrintWriter nfile = new PrintWriter("Savefile.txt");
+        nfile.println(c);
+        nfile.println(b);
+        nfile.println(n);
+        nfile.println(n2);
+        nfile.println(PlayerCredit);
+        nfile.println(PlayerCredit2);
+        nfile.println(single);
+        nfile.println(ami);
+         nfile.println(singleName);
+        nfile.println(twoPlayer1);
+        nfile.println(twoPlayer2);
+        nfile.close();
+    
+     
+     
+    
+    }
+
+    @FXML
+    private void onLoadCLick(ActionEvent event) throws IOException {
+        load();
+    }
+
+    @FXML
+    private void onExitClicked(ActionEvent event) {
+        
+        System.exit(0);
+    }
+
+  
     
     class NewThread1 implements Runnable
 {
